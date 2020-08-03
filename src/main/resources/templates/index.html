@@ -1,0 +1,95 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>首页</title>
+    <style type="text/css" media="all">
+        @import url("${request.contextPath}/static/css/style.css");
+        @import url("${request.contextPath}/static/css/jquery.wysiwyg.css");
+        @import url("${request.contextPath}/static/css/facebox.css");
+        @import url("${request.contextPath}/static/css/visualize.css");
+        @import url("${request.contextPath}/static/css/date_input.css");
+    </style>
+    <!--[if lt IE 8]><style type="text/css" media="all">@import url("${request.contextPath}/static/css/ie.css");</style><![endif]-->
+</head>
+<p>
+
+<div id="hld">
+
+    <form class="wrapper">		<!-- wrapper begins -->
+        <div id="header">
+            <div class="hdrl"></div>
+            <div class="hdrr"></div>
+
+            <h1><a href="#">CIMS</a></h1>
+
+            <ul id="nav">
+                <#if homeActive??>
+                <li class="active"><a href="${request.contextPath}/index">主页</a></li>
+                <#else>
+                <li><a href="${request.contextPath}/index">主页</a></li>
+                </#if>
+                <#if menuString??>
+                    ${menuString}
+                </#if>
+            </ul>
+
+            <p class="user">欢迎,
+                <#if user??>
+                <a href="#">${user.username}</a>
+                <#else>
+                <a href="${request.contextPath}/login">陌生人</a>
+                </#if>
+                <#if roles??>
+                | <select name="roles" style="background-color: #202020;color: #999; border: none" onchange="changeRole(this.value)">
+                        <#list roles as role>
+                        <#if activeRole.roleName==role.roleName>
+                        <option selected value="${role.roleName}">${role.roleName}</option>
+                        <#else>
+                        <option value="${role.roleName}">${role.roleName}</option>
+                        </#if>
+                    </#list>
+                    </select>
+                </#if>
+                | <a href="${request.contextPath}/logout">退出</a>
+            </p>
+        </div>		<!-- #header ends -->
+        <iframe name="mainFrame" id="mainFrame" frameBorder=0 scrolling=no width="100%" onload="iFrameHeight()" src="${request.contextPath}/index/welcome"></iframe>
+        <script type="text/javascript" language="javascript">
+            function iFrameHeight() {
+                var ifm= document.getElementById("mainFrame");
+                var subWeb = document.frames ? document.frames["mainFrame"].document : ifm.contentDocument;
+                if(ifm != null && subWeb != null) {
+                    ifm.height = subWeb.body.scrollHeight;
+                }
+            }
+        </script>
+        <div id="footer">
+
+            <p class="left"><a href="tel:13541210431">联系管理员</a></p>
+            <p class="right">powered by 肖承祥</a></p>
+
+        </div>
+</div>		<!-- #hld ends -->
+<script>
+    function changeRole(role){
+        window.location.href="${request.contextPath}/index?role="+role;
+    }
+</script>
+<!--[if IE]><script type="text/javascript" src="${request.contextPath}/static/js/excanvas.js"></script><![endif]-->
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.img.preload.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.filestyle.mini.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.wysiwyg.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.date_input.pack.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/facebox.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.visualize.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.visualize.tooltip.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.select_skin.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/ajaxupload.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.pngfix.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>登录</title>
+    <style type="text/css" media="all">
+        @import url("${request.contextPath}/static/css/style.css");
+        @import url("${request.contextPath}/static/css/jquery.wysiwyg.css");
+        @import url("${request.contextPath}/static/css/facebox.css");
+        @import url("${request.contextPath}/static/css/visualize.css");
+        @import url("${request.contextPath}/static/css/date_input.css");
+    </style>
+    <!--[if lt IE 8]><style type="text/css" media="all">@import url("${request.contextPath}/static/css/ie.css");</style><![endif]-->
+
+</head>
+<body>
+<div id="hld">
+    <div class="wrapper">		<!-- wrapper begins -->
+        <div class="block small center login">
+
+            <div class="block_head">
+                <div class="bheadl"></div>
+                <div class="bheadr"></div>
+
+                <h2>登录</h2>
+                <ul>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>		<!-- .block_head ends -->
+            <div class="block_content">
+                <#if err??>
+                    <div class="message info" ><p>错误信息: ${err}</p></div>
+                </#if>
+
+                <form action="${request.contextPath}/login" method="post">
+                    <p>
+                        <label>用户名:</label> <br />
+                        <input type="text" class="text" name="username" />
+                    </p>
+
+                    <p>
+                        <label>密码:</label> <br />
+                        <input type="password" class="text" name="password" />
+                    </p>
+
+                    <p>
+                        <input type="submit" class="submit" value="登录" /> &nbsp;
+                        <input type="checkbox" class="checkbox" checked="checked" id="rememberme" /> <label for="rememberme">记住密码</label>
+                    </p>
+                </form>
+
+            </div>
+            <!-- .block_content ends -->
+            <div class="bendl"></div>
+            <div class="bendr"></div>
+        </div>
+        <!-- .login ends -->
+    </div><!-- wrapper ends -->
+
+</div><!-- #hld ends -->
+
+<!--[if IE]><script type="text/javascript" src="${request.contextPath}/static/js/excanvas.js"></script><![endif]-->
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.img.preload.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.filestyle.mini.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.wysiwyg.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.date_input.pack.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/facebox.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.visualize.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.visualize.tooltip.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.select_skin.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/ajaxupload.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/jquery.pngfix.js"></script>
+<script type="text/javascript" src="${request.contextPath}/static/js/custom.js"></script>
+</body>
+</html>

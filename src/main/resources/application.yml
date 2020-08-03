@@ -1,0 +1,44 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+    max-http-post-size: -1
+  port: 18080
+  session:
+    tracking-modes: cookie
+  servlet:
+    context-path: /ecms
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+  freemarker:
+    suffix: .html
+    request-context-attribute: request
+    tempalte-loader-path: classpath:/templates
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ecms_db?autoReconnect=true&useSSL=false&useUnicode=yes&characterEncoding=utf8
+    username: root
+    password: 123456
+  filter:
+    stat:
+      log-slow-sql: true
+      slow-sql-millis: 1000
+      merge-sql: false
+  jpa:
+    show-sql: true
+    open-in-view: true # 禁用 OSIV <Spring Boot中默认启用了OSIV(Open Session in View)>
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
